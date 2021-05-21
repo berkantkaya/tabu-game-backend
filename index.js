@@ -191,11 +191,14 @@ const statusTypes = {
  var app = require('express')();
  var http = require('http').Server(app);
  var io = require('socket.io')(http);
+ var cors=require('cors')
  
  var clients = [];
  var teams = [ [], [] ];
  var lastId = 0;
  var readyCount = 0;
+
+ app.use(cors())
  
  //Takımları güncelle
  var updateTeams = function () {
