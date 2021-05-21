@@ -13,7 +13,7 @@ app.use(cors())
 io.on("connection", function (socket) {
     const key = makeid(5);
     console.log("key", key);
-    socket.join(key);
+    socket.send(key);
 
     socket.to(key).emit(`odaya katıldın ${key}`);
 });
