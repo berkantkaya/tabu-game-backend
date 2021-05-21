@@ -15,7 +15,7 @@ io.on("connection", function (socket) {
     console.log("key", key);
     socket.join(key);
 
-    io.to(key).emit(`odaya katıldın ${key}`);
+    socket.to(key).emit(`odaya katıldın ${key}`);
 });
 
 http.listen(3000, () => {
