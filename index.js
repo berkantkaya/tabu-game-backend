@@ -197,11 +197,6 @@ const statusTypes = {
  var lastId = 0;
  var readyCount = 0;
  
- //Dosyalara istekleri eşleme
- app.get('/',           function(req, res){ res.sendFile(__dirname + '/index.html'); });
- app.get('/index.html', function(req, res){ res.sendFile(__dirname + '/index.html'); });
- app.get('/',  function(req, res){ res.sendFile(__dirname + '/'); });
- 
  //Takımları güncelle
  var updateTeams = function () {
     teams[0].splice(0, teams[0].length);
