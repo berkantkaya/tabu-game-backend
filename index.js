@@ -191,14 +191,25 @@ const statusTypes = {
  var app = require('express')();
  var http = require('http').Server(app);
  var io = require('socket.io')(http);
- var cors=require('cors')
+ // var cors=require('cors')
  
  var clients = [];
  var teams = [ [], [] ];
  var lastId = 0;
  var readyCount = 0;
 
- app.use(cors())
+ app.use(function (req, res, next) {
+   res.setHeader("Access-Control-Allow-Origin", "*");
+   res.setHeader(
+     "Access-Control-Allow-Headers",
+     "Origin, X-Requested-With, Content-Type, Accept"
+   );
+   res.setHeader(
+     "Access-Control-Allow-Methods",
+     "POST, GET, PATCH, DELETE, OPTIONS"
+   );
+   next();
+ });
  
  //Takımları güncelle
  var updateTeams = function () {
